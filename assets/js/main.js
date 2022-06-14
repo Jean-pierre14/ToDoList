@@ -2,7 +2,7 @@ const open = document.getElementById('addBtn'),
     close = document.getElementById('close'),
     content = document.getElementById('content-box')
 
-// content.style.display = 'none';
+content.style.display = 'none';
 
 // Open modal
 open.onclick = () => {
