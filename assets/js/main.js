@@ -19,3 +19,10 @@ close.onclick = () => {
     content.style.display = 'none';
 
 }
+
+
+// Title validation
+
+function Title() {
+    alert('This ' + this.target.value)
+}
