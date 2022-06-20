@@ -20,4 +20,11 @@
 
     }
     
+    $i = 0;
+
+    while($i <= 10){
+        echo $i ."<br/>";
+        $i++;
+    }
+
     $rouge = new Car('Cruiser', "Black");
