@@ -2,22 +2,22 @@
 
     class Car{
 
-        // Properties
         public $name;
+        public $color;
 
-        function set_name($name){
+        function __construct($name, $color) {
+
             $this->name = $name;
+            $this->color = $color;
+        
         }
 
-        function get_name(){
-            return $this->name;
+        function __destruct(){
+
+            echo "The car is {$this->name} and the color {$this->color}";
+
         }
 
     }
-
-    $toyota = new Car();
-
-    $toyota->set_name('Land');
-
-    echo $toyota->get_name();
-?>
+    
+    $rouge = new Car('Cruiser', "Black");
