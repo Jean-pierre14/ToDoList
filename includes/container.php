@@ -1,34 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To do List</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-
-<body>
-    <nav class="nav">
-        <div class="brand">
-            <a href="index.html">Racine14</a>
-        </div>
-        <div class="links">
-            <ul>
-                <li>
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="#">Profil</a>
-                </li>
-                <li>
-                    <a href="#">About me</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <div class="container">
+<div class="container">
         <div class="row-center">
             <div class="box">
                 <div class="wrapper">
@@ -103,40 +73,3 @@
             </div>
         </div>
     </div>
-
-    <div class="addMore">
-        <button type="button" class="btn-add" id="addBtn">Add</button>
-    </div>
-
-    <div class="content-box" id="content-box">
-        <div class="modal" id="data-modal">
-            <div class="modal-header">
-                <h2>Add new task</h2>
-            </div>
-            <div class="modal-body">
-                <form action="#" method="post">
-                    <div class="group">
-                        <label for="title">Title</label>
-                        <input type="text" onkeyup="Title()" id="title" name="title" placeholder="Titre" class="input">
-                        <p id="error"></p>
-                    </div>
-                    <div class="group">
-                        <label for="description">Description</label>
-                        <textarea class="input" id="description" aria-placeholder="Description" placeholder="Description"></textarea>
-                    </div>
-                    <div class="group">
-                        <button class="btn btn-green" type="button">Register</button>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <h2>Copyright ~</h2>
-                <button id="close" class="btn btn-red">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="./assets/js/main.js"></script>
-</body>
-
-</html>
