@@ -10,9 +10,11 @@
     require_once "./includes/container.php";
     require_once "./includes/add.php";
     require_once "./includes/footer.php";
+    
 ?>
 <?php else:?>
     <div class="container">
+
         <div class="box">
             <div class="wrapper p-5">
             <h2>Error...</h2>
