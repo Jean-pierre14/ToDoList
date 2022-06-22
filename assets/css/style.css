@@ -198,6 +198,10 @@ span {
   padding: 25px 10px;
 }
 
+.p-5 {
+  padding: 5rem;
+}
+
 .btn {
   outline: none;
   background: none;
