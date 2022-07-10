@@ -15,7 +15,7 @@
                         <textarea class="input" id="description" aria-placeholder="Description" placeholder="Description"></textarea>
                     </div>
                     <div class="group">
-                        <button class="btn btn-green" type="button">Register</button>
+                        <button class="btn btn-green" id="create" type="button">Register</button>
                     </div>
                 </form>
             </div>
