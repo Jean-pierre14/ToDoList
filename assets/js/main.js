@@ -1,25 +1,8 @@
 const open = document.getElementById('addBtn'),
     close = document.getElementById('close'),
-    content = document.getElementById('content-box'),
-    title = document.getElementById('title'),
-    desc = document.getElementById('description'),
-    create = document.getElementById('create');
+    content = document.getElementById('content-box');
 
 
-create.onsubmit = (e) => {
-
-    e.preventDefault();
-
-    const t = title.value,
-        d = desc.value;
-
-    if (!t || !d) {
-        alert("Les champs doivent bien rempli");
-    } else {
-        alert("Cool");
-    }
-
-}
 
 content.style.display = 'none';
 

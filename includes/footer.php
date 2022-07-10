@@ -4,7 +4,7 @@
                 <h2>Add new task</h2>
             </div>
             <div class="modal-body">
-                <form action="#" method="post">
+                <form action="#" method="post" id="myForm">
                     <div class="group">
                         <label for="title">Title</label>
                         <input type="text" onkeyup="Title()" id="title" name="title" placeholder="Titre" class="input">
@@ -15,7 +15,7 @@
                         <textarea class="input" id="description" aria-placeholder="Description" placeholder="Description"></textarea>
                     </div>
                     <div class="group">
-                        <button class="btn btn-green" id="create" type="button">Register</button>
+                        <button class="btn btn-green" id="create" type="submit">Register</button>
                     </div>
                 </form>
             </div>
@@ -27,6 +27,13 @@
     </div>
 
     <script src="./assets/js/main.js"></script>
+    <script>
+        var myForm = document.getElementById('myForm');
+        myForm.onsubmit = (e) => {
+            e.preventDefault();
+            console.log("Good");
+        }
+    </script>
 </body>
 
 </html>
