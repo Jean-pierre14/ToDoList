@@ -7,11 +7,7 @@ const open = document.getElementById('addBtn'),
 content.style.display = 'none';
 
 // Open modal
-open.onclick = () => {
-
-    content.style.display = 'block';
-
-}
+open.onclick = () => content.style.display = 'block';
 
 // close modal
 close.onclick = () => content.style.display = 'none';
