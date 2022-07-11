@@ -8,20 +8,13 @@ content.style.display = 'none';
 
 // Open modal
 open.onclick = () => {
-    // alert("Open")
 
     content.style.display = 'block';
 
 }
 
 // close modal
-close.onclick = () => {
-    // alert("Close")
-
-    content.style.display = 'none';
-
-}
-
+close.onclick = () => content.style.display = 'none';
 
 // Title validation
 
