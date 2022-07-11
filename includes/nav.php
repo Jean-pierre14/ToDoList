@@ -8,6 +8,9 @@
                 <a href="#">Home</a>
             </li>
             <li>
+                <a href="download.php">Download</a>
+            </li>
+            <li>
                 <a href="#">Profil</a>
             </li>
             <li>
