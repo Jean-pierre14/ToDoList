@@ -1,5 +1,6 @@
 <div class="container">
     <div class="row-center">
+        <?php SelectAll();?>
         <div class="box">
             <div class="wrapper">
                 <div class="header">
@@ -71,5 +72,12 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
+
+<?php
+
+function SelectAll(){
+    return echo "Cool";
+}

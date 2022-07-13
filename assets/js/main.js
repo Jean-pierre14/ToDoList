@@ -14,3 +14,15 @@ close.onclick = () => content.style.display = 'none';
 function Title() {
     alert('This ' + this.target.value);
 }
+
+
+/**
+ * Init function
+ * 
+ * */
+function Init(){
+    
+}
+Init();
+
+

@@ -5,7 +5,7 @@
     <div class="links">
         <ul>
             <li>
-                <a href="#">Home</a>
+                <a href="index.php">Home</a>
             </li>
             <li>
                 <a href="download.php">Download</a>
