@@ -4,23 +4,28 @@
                 <h2>Add new task</h2>
             </div>
             <div class="modal-body">
+                
+                <div id="error"></div>
+                
                 <form action="#" method="post" id="myForm">
+                    
                     <div class="group">
                         <label for="title">Title</label>
-                        <input type="text" onkeyup="Title()" id="title" name="title" placeholder="Titre" class="input">
+                        <input type="text" id="title" name="title" placeholder="Titre" class="input">
                         <p id="error"></p>
                     </div>
                     <div class="group">
                         <label for="description">Description</label>
-                        <textarea class="input" id="description" aria-placeholder="Description" placeholder="Description"></textarea>
+                        <textarea class="input" id="desc" aria-placeholder="Description" placeholder="Description"></textarea>
                     </div>
+
                     <div class="group">
-                        <button class="btn btn-green" id="create" type="submit">Register</button>
+                        <button class="btn btn-green" id="CreateBtn" type="button">Register</button>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <h2>Copyright ~</h2>
+                <h4>Copyright ~</h4>
                 <button id="close" class="btn btn-red">Close</button>
             </div>
         </div>
@@ -47,19 +52,21 @@
             }
             SelectAll();
 
-            $('#myForm').onclick = (e) => {
-                
-                e.preventDefault();
+            $(document).on('click', '#CreateBtn', function(){
 
-                let title = document.getElementById('title'),
-                    desc = document.getElementById('desc');
+                let title = $('#title').val(),
+                    desc = $('#desc').val();
 
                 if(!title || !desc){
 
-                    alert('Les champs sont vide');
+                    $('#error').text('Les champs sont vides').addClass('alert alert-danger');
                 
                 }else{
                     
+                    $('#error').text('').removeClass('alert alert-danger');
+
+                    // console.log(title +' '+ desc);
+
                     $.ajax({
                         url: './Config/actions.php',
                         method: 'POST',
@@ -67,14 +74,17 @@
                         success: function(data){
 
                             $("#results").innerHTML = data;
+                            $('#title').val('');
+                            $('#desc').val('');
+                            SelectAll();
                         
                         }
                     });
 
                 }
-            }
+            });
+            
         });
-
         
     </script>
 </body>

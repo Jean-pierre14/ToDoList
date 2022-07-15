@@ -14,7 +14,7 @@
         if($_POST['action'] == 'create'){
 
             $title = htmlentities(mysqli_real_escape_string($con, $_POST['title']));
-            $description = htmlentities(mysqli_real_escape_string($con, $_POST['description']));
+            $description = htmlentities(mysqli_real_escape_string($con, $_POST['desc']));
 
             // Checking of errors
             if(empty($title)) {array_push($errors, "Le titre est vide");}
@@ -23,7 +23,7 @@
             // Checking of the array
             if (count($errors) == 0) {
                 
-                $sql = mysqli_query($con, "INSERT INTO todoList_tb(title, `desc`) VALUES('.$title.', '.$description.')");
+                $sql = mysqli_query($con, "INSERT INTO todoList_tb(title, `desc`) VALUES('$title', '$description')");
                 
                 if ($sql){
 
@@ -52,39 +52,31 @@
 
             $sql = mysqli_query($con, "SELECT * FROM todoList_tb ORDER BY id DESC");
             
-            if(@mysqli_num_rows($sql) > 0){
+            if(@mysqli_num_rows($sql) > 0) {
                 
-                $output .= '
-                    <div class="container">
-                        <div class="row-center">
-                ';
-                
-                $output .= '
-                <div class="box">
-                    <div class="wrapper">
-                        <div class="header">
-                            <h2 class="heading">Tasts zero</h2>
-                            <small class="date">Date</small>
-                            <span class="status on">
-                                status on
-                            </span>
+                while($row = mysqli_fetch_array($sql)){
+                    $output .= '
+                        <div class="box">
+                            <div class="wrapper">
+                                <div class="header">
+                                    <h2 class="heading">'.$row['title'].'</h2>
+                                    <small class="date">'.$row['created_at'].'</small>
+                                    <span class="status on">
+                                        status on
+                                    </span>
+                                </div>
+                                <div class="description">
+                                    <p>
+                                        '.$row['desc'].'
+                                    </p>
+                                </div>
+                                <div class="verification">
+                                    <button class="on" id="'.$row['id'].'" type="button">Done</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="description">
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia corporis eum reiciendis veniam facere amet tempora labore fugit, natus itaque iusto dolores in eveniet ea quam ullam nesciunt ut earum.
-                            </p>
-                        </div>
-                        <div class="verification">
-                            <button class="on" type="button">Done</button>
-                        </div>
-                    </div>
-                </div>
-                ';
-
-                $output .= '
-                    </div>
-                </div>
-                ';
+                        ';
+                }
 
             }else{
                 

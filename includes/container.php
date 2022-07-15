@@ -1,5 +1,5 @@
-<div class="container" id="results">
-    <div class="row-center">
+<div class="container">
+    <div class="row-center"  id="results">
         <div class="box">
             <div class="wrapper">
                 <div class="header">

@@ -210,10 +210,16 @@ span {
     margin: 10px auto;
 }
 
+.alert-danger {
+    background-color: rgba(205, 2, 2, 0.445);
+    border-radius: .4rem;
+    border: 2px solid rgba(241, 1, 1, 0.742);
+}
+
 .alert-warning {
     background-color: rgba(205, 56, 2, 0.445);
     border-radius: .4rem;
-    border: 1.5px solid rgba(205, 56, 2, 0.742);
+    border: 2px solid rgba(205, 56, 2, 0.742);
 }
 
 .p-5 {
