@@ -1,6 +1,6 @@
 <?php
     
-    require_once "./db.config.php";
+    require_once "./db.conf.php";
 
     $datas = [];
 
@@ -45,16 +45,20 @@
         
         // Read
         if($_POST['action'] == 'read'){
+
+            sleep(1.5);
             
             $action = 'SelectAll';
 
             $sql = mysqli_query($con, "SELECT * FROM todoList_tb ORDER BY id DESC");
-
+            
             if(@mysqli_num_rows($sql) > 0){
-                $output = '
-                <div class="container">
-                    <div class="row-center">
+                
+                $output .= '
+                    <div class="container">
+                        <div class="row-center">
                 ';
+                
                 $output .= '
                 <div class="box">
                     <div class="wrapper">
@@ -76,13 +80,19 @@
                     </div>
                 </div>
                 ';
-                $output = '
+
+                $output .= '
                     </div>
                 </div>
                 ';
+
             }else{
+                
                 $output = '<p class="alert alert-warning">Vous n\'avez pas des donnees :(</p>';
+            
             }
+
+            print $output;
         }
         
         // Search

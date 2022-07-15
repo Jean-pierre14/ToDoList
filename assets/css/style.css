@@ -63,6 +63,7 @@ span {
 .container {
   position: relative;
   z-index: 1;
+  padding: 10px 0;
   width: 60%;
   margin: 95px auto;
   background-color: #fff;
@@ -198,6 +199,20 @@ span {
   padding: 25px 10px;
 }
 
+.alert {
+  position: relative;
+  display: block;
+  width: 90%;
+  padding: 10px 25px;
+  margin: 10px auto;
+}
+
+.alert-warning {
+  background-color: rgba(205, 56, 2, 0.445);
+  border-radius: 0.4rem;
+  border: 1.5px solid rgba(205, 56, 2, 0.742);
+}
+
 .p-5 {
   padding: 5rem;
 }
@@ -230,12 +245,10 @@ span {
     position: relative;
     width: 85%;
   }
-
   .addMore {
     right: 10px;
     bottom: 85px;
   }
-
   .modal {
     width: 90%;
   }

@@ -29,8 +29,23 @@
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/jquery-3.4.0.min.js"></script>
     <script>
+        
+        let results = document.getElementById('results');
+
         $(document).ready(function(){
-            alert("Hool");
+            
+            function SelectAll(){
+                $.ajax({
+                    url: './Config/actions.php',
+                    method: 'POST',
+                    data: {action: 'read'},
+                    success: function(data){
+                        document.getElementById('results').innerHTML = data;                   
+                    }
+                });
+
+            }
+            SelectAll();
 
             $('#myForm').onclick = (e) => {
                 
@@ -40,54 +55,27 @@
                     desc = document.getElementById('desc');
 
                 if(!title || !desc){
+
                     alert('Les champs sont vide');
+                
                 }else{
+                    
                     $.ajax({
                         url: './Config/actions.php',
                         method: 'POST',
                         data: {action: 'create', title, desc},
                         success: function(data){
+
                             $("#results").innerHTML = data;
+                        
                         }
-                    })
+                    });
+
                 }
             }
         });
 
-        var myForm = document.getElementById('myForm');
-        myForm.onsubmit = (e) => {
-            e.preventDefault();
-            console.log("Good");
-        }
-
-
-
-        function SelectAll(){
-
-            let action = 'read';
-            $.ajax({
-                url: './Config/actions.php',
-                method: 'POST',
-                data: {
-                    action, 
-                    title, 
-                    desc
-                },
-                success: function(data){
-                    
-                    if(data === 'error'){
-                        
-                        results.innerHTML = `<p class="alert alert-danger">${data}</p>`;
-
-                    }else{
-                        results.innerHTML = data;
-                    }
-                
-                }
-            });
-
-        }
-        SelectAll();
+        
     </script>
 </body>
 
