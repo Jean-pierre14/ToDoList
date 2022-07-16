@@ -6,6 +6,29 @@
   box-sizing: border-box;
 }
 
+::root {
+  --primary: rgb(1, 73, 255);
+  --danger: rgb(251, 43, 43);
+  --red: rgb(252, 16, 16);
+  --while: #fff;
+  --black: #000;
+}
+
+button.primary {
+  background-color: var(--primary);
+  color: var(--black);
+}
+
+.primary {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.danger {
+  background-color: var(--danger);
+  color: var(--black);
+}
+
 body {
   background-color: #ccc;
 }
@@ -106,16 +129,29 @@ span {
 .container .row-center .box .wrapper .verification button {
   border: none;
   outline: none;
-  background-color: rgba(42, 197, 249, 0.332);
   cursor: pointer;
   padding: 8px 20px;
-  color: rgb(42, 41, 41);
   border-radius: 0.4rem;
   transition: all 0.3s;
 }
+.container .row-center .box .wrapper .verification button.primary {
+  background-color: var(--primary);
+  color: var(--black);
+}
+.container .row-center .box .wrapper .verification button.danger {
+  background-color: var(--danger);
+  color: var(--black);
+}
+.container .row-center .box .wrapper .verification button:nth-child(2) {
+  background-color: var(--primary);
+  color: var(--while);
+}
+.container .row-center .box .wrapper .verification button:nth-child(3) {
+  background-color: var(--danger);
+  color: var(--while);
+}
 .container .row-center .box .wrapper .verification button:hover {
-  background-color: rgba(42, 197, 249, 0.549);
-  color: #000;
+  opacity: 0.7;
 }
 .container .row-center .box:last-child {
   border: none;
@@ -140,8 +176,7 @@ span {
   transition: all 0.3s ease;
 }
 .addMore button:hover {
-  background-color: #fff;
-  box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.132);
+  opacity: 0.7;
 }
 
 .content-box {
@@ -202,7 +237,7 @@ span {
 .alert {
   position: relative;
   display: block;
-  width: 90%;
+  width: 100%;
   padding: 10px 25px;
   margin: 10px auto;
 }
@@ -210,6 +245,7 @@ span {
 .alert-danger {
   background-color: rgba(205, 2, 2, 0.445);
   border-radius: 0.4rem;
+  color: var(--red);
   border: 2px solid rgba(241, 1, 1, 0.742);
 }
 
@@ -237,8 +273,8 @@ span {
 }
 
 .btn-red {
-  background-color: red;
-  color: #eee;
+  background-color: var(--danger);
+  color: var(--white);
 }
 
 .btn-green {

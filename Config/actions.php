@@ -61,18 +61,44 @@
                                 <div class="header">
                                     <h2 class="heading">'.$row['title'].'</h2>
                                     <small class="date">'.$row['created_at'].'</small>
-                                    <span class="status on">
-                                        status on
-                                    </span>
+                                    ';
+                                    if($row['status'] == 1){
+                                        $output .= '
+                                            <span class="status on">
+                                            Done
+                                        </span>';
+                                    }else{
+                                        $output .= '
+                                        <span class="status off">
+                                            In process
+                                        </span>
+                                        ';
+                                    }
+                                    $output.= '
+                                    
                                 </div>
                                 <div class="description">
                                     <p>
                                         '.$row['desc'].'
                                     </p>
                                 </div>
-                                <div class="verification">
+                                ';
+                                if($row['status'] == 1){
+                                    $output .= '
+                                    <div class="verification">
+                                        <button class="delete danger" id="'.$row['id'].'" type="button">Delete</button>
+                                    </div>
+                                    ';
+                                }else{
+                                    $output .= '
+                                    <div class="verification">
                                     <button class="on" id="'.$row['id'].'" type="button">Done</button>
+                                    <button class="edit primary" id="'.$row['id'].'" type="button">Edit</button>
+                                    <button class="delete danger" id="'.$row['id'].'" type="button">Delete</button>
                                 </div>
+                                    ';
+                                }
+                                $output .= '
                             </div>
                         </div>
                         ';
@@ -110,3 +136,8 @@ if(isset($_GET['actions'])){
 
     }
 }
+
+
+
+// My APis
+
