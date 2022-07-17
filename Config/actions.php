@@ -23,7 +23,7 @@
             // Checking of the array
             if (count($errors) == 0) {
                 
-                $sql = mysqli_query($con, "INSERT INTO todoList_tb(title, `desc`) VALUES('$title', '$description')");
+                $sql = mysqli_query($con, "INSERT INTO todoList_tb(title, `desc`, event_status) VALUES('$title', '$description', 1)");
                 
                 if ($sql){
 
@@ -50,7 +50,7 @@
             
             $action = 'SelectAll';
 
-            $sql = mysqli_query($con, "SELECT * FROM todoList_tb ORDER BY id DESC");
+            $sql = mysqli_query($con, "SELECT * FROM todoList_tb WHERE event_status = 1 ORDER BY id DESC");
             
             if(@mysqli_num_rows($sql) > 0) {
                 
@@ -92,10 +92,10 @@
                                 }else{
                                     $output .= '
                                     <div class="verification">
-                                    <button class="on" id="'.$row['id'].'" type="button">Done</button>
-                                    <button class="edit primary" id="'.$row['id'].'" type="button">Edit</button>
-                                    <button class="delete danger" id="'.$row['id'].'" type="button">Delete</button>
-                                </div>
+                                        <button class="on done" id="'.$row['id'].'" type="button">Done</button>
+                                        <button class="edit primary" id="'.$row['id'].'" type="button">Edit</button>
+                                        <button class="delete danger" id="'.$row['id'].'" type="button">Delete</button>
+                                    </div>
                                     ';
                                 }
                                 $output .= '
@@ -111,6 +111,31 @@
             }
 
             print $output;
+        }
+
+        // Done Event
+        if($_POST['action'] == 'done'){
+
+            $Id = mysqli_real_escape_string($con, $_POST['Id']);
+            $sql = mysqli_query($con, "UPDATE todoList_tb SET `status` = '1' WHERE id = $Id");
+
+            if($sql){
+                print "success ". $Id;
+            }else{
+                print "Error";
+            }
+        }
+        // Delete Event
+        if($_POST['action'] == 'delete'){
+
+            $Id = mysqli_real_escape_string($con, $_POST['Id']);
+            $sql = mysqli_query($con, "UPDATE todoList_tb SET event_status = 0 WHERE id = $Id");
+
+            if($sql){
+                print "success ";
+            }else{
+                print "Error";
+            }
         }
         
         // Search

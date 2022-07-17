@@ -31,9 +31,14 @@
         </div>
     </div>
 
-    <script src="./assets/js/main.js"></script>
+    
     <script src="./assets/js/jquery-3.4.0.min.js"></script>
+    <script src="./assets/js/main.js"></script>
     <script>
+
+// const cl = ["one", "two"];
+// cl.length = 0;
+// console.log(cl[0]);
         
         let results = document.getElementById('results');
 
@@ -50,7 +55,37 @@
                 });
 
             }
+            
             SelectAll();
+
+            $(document).on("click", ".done", function(){
+                let Id = $(this).attr('id'),
+                    action = 'done';
+
+                $.ajax({
+                    url: './Config/actions.php',
+                    method: 'post',
+                    data: {action, Id},
+                    success: function(data){
+                        SelectAll();
+                    }
+                })
+            });
+            $(document).on("click", ".delete", function(){
+                let Id = $(this).attr('id'),
+                    action = 'delete';
+
+                $.ajax({
+                    url: './Config/actions.php',
+                    method: 'post',
+                    data: {action, Id},
+                    success: function(data){
+                        SelectAll();
+                    }
+                })
+            });
+
+            
 
             $(document).on('click', '#CreateBtn', function(){
 
@@ -85,6 +120,9 @@
             });
             
         });
+
+
+        
         
     </script>
 </body>
